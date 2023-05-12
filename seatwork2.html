@@ -9,6 +9,9 @@
 			margin-top: 50px;
 			max-width: 600px;
 		}
+		body{
+			 background-color: #d5d5ff;
+		}
 	</style>
 </head>
 <body>
@@ -31,10 +34,10 @@
 				<label for="days">Days:</label>
 				<input type="number" class="form-control" id="days">
 			</div>
-			<button type="button" class="btn btn-primary" onclick="convert('minutes')">Convert Minutes</button>
-			<button type="button" class="btn btn-primary" onclick="convert('seconds')">Convert Seconds</button>
-			<button type="button" class="btn btn-primary" onclick="convert('hours')">Convert Hours</button>
-			<button type="button" class="btn btn-primary" onclick="convert('days')">Convert Days</button>
+			<button type="button" class="btn btn-success" onclick="convert('minutes')">Convert Minutes</button>
+			<button type="button" class="btn btn-success" onclick="convert('seconds')">Convert Seconds</button>
+			<button type="button" class="btn btn-success" onclick="convert('hours')">Convert Hours</button>
+			<button type="button" class="btn btn-success" onclick="convert('days')">Convert Days</button>
 		</form>
 		<hr>
 		<h2>Results:</h2>
@@ -95,5 +98,3 @@
 		document.getElementById("resultDays").value = days || 0;
 	}
 </script>
-</body>
-</html>
