@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Time Converter</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<style>
+		.container {
+			margin-top: 50px;
+			max-width: 600px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Time Converter</h1>
+		<form>
+			<div class="form-group">
+				<label for="minutes">Minutes:</label>
+				<input type="number" class="form-control" id="minutes">
+			</div>
+			<div class="form-group">
+				<label for="seconds">Seconds:</label>
+				<input type="number" class="form-control" id="seconds">
+			</div>
+			<div class="form-group">
+				<label for="hours">Hours:</label>
+				<input type="number" class="form-control" id="hours">
+			</div>
+			<div class="form-group">
+				<label for="days">Days:</label>
+				<input type="number" class="form-control" id="days">
+			</div>
+			<button type="button" class="btn btn-primary" onclick="convert('minutes')">Convert Minutes</button>
+			<button type="button" class="btn btn-primary" onclick="convert('seconds')">Convert Seconds</button>
+			<button type="button" class="btn btn-primary" onclick="convert('hours')">Convert Hours</button>
+			<button type="button" class="btn btn-primary" onclick="convert('days')">Convert Days</button>
+		</form>
+		<hr>
+		<h2>Results:</h2>
+		<div class="form-group">
+			<label for="resultSeconds">Seconds:</label>
+			<input type="number" class="form-control" id="resultSeconds" readonly>
+		</div>
+		<div class="form-group">
+			<label for="resultMinutes">Minutes:</label>
+			<input type="number" class="form-control" id="resultMinutes" readonly>
+		</div>
+		<div class="form-group">
+			<label for="resultHours">Hours:</label>
+			<input type="number" class="form-control" id="resultHours" readonly>
+		</div>
+		<div class="form-group">
+			<label for="resultDays">Days:</label>
+			<input type="number" class="form-control" id="resultDays" readonly>
+		</div>
+	</div>
+	
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<!-- Javascript -->
+	<script>
+		function convert(from) {
+			// get the input value
+			var inputValue = parseInt(document.getElementById(from).value);
+			// calculate the other values based on the selected input field
+			switch (from) {
+				case "minutes":
+					var seconds = inputValue * 60;
+					var hours = inputValue / 60;
+					var days = inputValue / 1440;
+					break;
+				case "seconds":
+					var minutes = inputValue / 60;
+					var hours = minutes / 60;
+					var days = hours / 24;
+				break;
+			case "hours":
+				var minutes = inputValue * 60;
+				var seconds = minutes * 60;
+				var days = inputValue / 24;
+				break;
+			case "days":
+				var minutes = inputValue * 1440;
+				var seconds = minutes * 60;
+				var hours = inputValue * 24;
+				break;
+		}
+		// update the result fields
+		document.getElementById("resultSeconds").value = seconds || 0;
+		document.getElementById("resultMinutes").value = minutes || 0;
+		document.getElementById("resultHours").value = hours || 0;
+		document.getElementById("resultDays").value = days || 0;
+	}
+</script>
+</body>
+</html>
